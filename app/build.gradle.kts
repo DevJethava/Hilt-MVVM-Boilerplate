@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp.android)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -93,7 +94,7 @@ dependencies {
 
     // Architecture Component - Room
     implementation(libs.androidx.room.runtime)
-//    ksp(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
     // Dagger - Hilt DI
@@ -108,4 +109,8 @@ dependencies {
     // For local unit tests
     testImplementation(libs.hilt.android.testing)
     kspTest(libs.hilt.compiler)
+}
+
+hilt {
+    enableAggregatingTask = true
 }
